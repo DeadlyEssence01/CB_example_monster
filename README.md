@@ -4,7 +4,7 @@ This guide will act as a stand-in "Part 3" of the wiki's "Monster Making Guide",
 
 This guide is going to assume that you've already downloaded Godot, and set up your [Modding Environment](https://wiki.cassettebeasts.com/wiki/Modding:Mod_Developer_Guide).
 
-To create a monster you'll want to decide if you're going to stay within vanilla specifications, or branch out [Part 1 of the Monster Making Guide].(https://wiki.cassettebeasts.com/wiki/Modding:Monster_Making_Guide_Part_1) has the information on conceptualizing a creature, and setting it up to work within the Cassette Beasts' world, as well as making your art. 
+To create a monster you'll want to decide if you're going to stay within vanilla specifications, or branch out. [Part 1 of the Monster Making Guide](https://wiki.cassettebeasts.com/wiki/Modding:Monster_Making_Guide_Part_1) has the information on conceptualizing a creature, and setting it up to work within the Cassette Beasts' world, as well as making your art. 
 
 Next, you'll want to work on setting up your [Fusion Form, as shown in Part 2.](https://wiki.cassettebeasts.com/wiki/Modding:Monster_Making_Guide_Part_2)
 
