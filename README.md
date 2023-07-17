@@ -136,6 +136,8 @@ Now, when the game loads, our translation strings will load in, and our spawn co
 ### Save Files - Optional
 Adding new monsters to the game, and then removing the mod that adds them breaks the save file. There are currently two ways to fix this. 1. Requesting the player download [this mod that doesn't exist yet]() the mod will fix broken saves, or by using the code below [(based on code from NCrafter)](https://github.com/ninaforce13/CassetteBeasts-CustomMonsterTest/blob/main/Custom%20Monster/TapeCollections_Ext.gd) to make your mod not even break the save to begin with. 
 
+The code pasted below does not yet fix a save if a modded monsters is given to Frankie.  NCrafter is updating the GitHub repository and updates to this guide will soon follow. 
+
 
 In `mod.gd` you'll need to add the below code prior to `func init_content() -> void:` and replace your folder name with your mod's folder name.
 
