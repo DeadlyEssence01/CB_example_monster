@@ -15,15 +15,15 @@ Next, you'll want to work on setting up your [Fusion Form, as shown in Part 2.](
 This is probably the easiest part!
 
 ### What You'll need 
-1. Your battle sprite .png and .json
-1. (if doing) Your world sprite .png and .json
-1. Battle cry .wav
-1. Tape sticker image .png
+1. Battle sprite .png and .json
+1. World sprite .png and .json (optional)
+1. Battle cry .wav (optional)
+1. Tape sticker image .png (optional)
 
 You'll need to create a:
 1. A list of move tags to use
-1. A List of initial moves
-1. A bio for the beastiary
+1. A list of initial moves
+1. A bio for the bestiary
 
 
 Assuming you already have a folder for your monster mod in your CB modding environment - make sure all of your files are in your mod folder. You can put them in subfolders if you'd like to organize them.
