@@ -1,7 +1,6 @@
-[gd_resource type="Resource" load_steps=25 format=2]
+[gd_resource type="Resource" load_steps=24 format=2]
 
 [ext_resource path="res://sfx/cries/traffikrab_cry.wav" type="AudioStream" id=1]
-[ext_resource path="res://data/elemental_types/air.tres" type="Resource" id=2]
 [ext_resource path="res://data/elemental_types/plastic.tres" type="Resource" id=3]
 [ext_resource path="res://data/monster_forms/lobstacle.tres" type="Resource" id=5]
 [ext_resource path="res://data/monster_forms/weevilite.tres" type="Resource" id=6]
@@ -84,7 +83,7 @@ named_positions = {
 "eye": Vector2( 33, 33 ),
 "hit": Vector2( 35, 33 )
 }
-elemental_types = [ ExtResource( 3 ), ExtResource( 2 ) ]
+elemental_types = [ ExtResource( 3 ) ]
 tape_sticker_texture = ExtResource( 13 )
 exp_yield = 40
 require_dlc = ""
