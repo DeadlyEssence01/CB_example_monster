@@ -1,0 +1,292 @@
+{ "frames": {
+   "Traffi2 0.ase": {
+    "frame": { "x": 1, "y": 1, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 1.ase": {
+    "frame": { "x": 72, "y": 1, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 2.ase": {
+    "frame": { "x": 143, "y": 1, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 3.ase": {
+    "frame": { "x": 214, "y": 1, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 4.ase": {
+    "frame": { "x": 285, "y": 1, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 5.ase": {
+    "frame": { "x": 1, "y": 57, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 6.ase": {
+    "frame": { "x": 72, "y": 57, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 7.ase": {
+    "frame": { "x": 143, "y": 57, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 8.ase": {
+    "frame": { "x": 214, "y": 57, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 9.ase": {
+    "frame": { "x": 285, "y": 57, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 10.ase": {
+    "frame": { "x": 1, "y": 113, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 11.ase": {
+    "frame": { "x": 72, "y": 113, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 12.ase": {
+    "frame": { "x": 143, "y": 113, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 13.ase": {
+    "frame": { "x": 214, "y": 113, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 14.ase": {
+    "frame": { "x": 285, "y": 113, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 15.ase": {
+    "frame": { "x": 1, "y": 169, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 16.ase": {
+    "frame": { "x": 72, "y": 169, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 17.ase": {
+    "frame": { "x": 143, "y": 169, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 18.ase": {
+    "frame": { "x": 214, "y": 169, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 19.ase": {
+    "frame": { "x": 285, "y": 169, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 20.ase": {
+    "frame": { "x": 1, "y": 225, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 21.ase": {
+    "frame": { "x": 72, "y": 225, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 22.ase": {
+    "frame": { "x": 143, "y": 225, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 23.ase": {
+    "frame": { "x": 214, "y": 225, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 24.ase": {
+    "frame": { "x": 285, "y": 225, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 25.ase": {
+    "frame": { "x": 1, "y": 281, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 26.ase": {
+    "frame": { "x": 72, "y": 281, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 27.ase": {
+    "frame": { "x": 143, "y": 281, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 28.ase": {
+    "frame": { "x": 214, "y": 281, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 29.ase": {
+    "frame": { "x": 285, "y": 281, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 30.ase": {
+    "frame": { "x": 1, "y": 337, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 31.ase": {
+    "frame": { "x": 72, "y": 337, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 32.ase": {
+    "frame": { "x": 143, "y": 337, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   },
+   "Traffi2 33.ase": {
+    "frame": { "x": 214, "y": 337, "w": 70, "h": 55 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 70, "h": 55 },
+    "sourceSize": { "w": 70, "h": 55 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "http://www.aseprite.org/",
+  "version": "1.3-rc2-x64",
+  "image": "Traffikrabdos.png",
+  "format": "RGBA8888",
+  "size": { "w": 356, "h": 393 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "idle", "from": 0, "to": 5, "direction": "forward", "color": "#000000ff" },
+   { "name": "alt_idle", "from": 6, "to": 9, "direction": "forward", "color": "#000000ff" },
+   { "name": "windup", "from": 10, "to": 17, "direction": "forward", "color": "#000000ff" },
+   { "name": "attack", "from": 18, "to": 23, "direction": "forward", "color": "#000000ff" },
+   { "name": "hurt", "from": 24, "to": 27, "direction": "forward", "color": "#000000ff" },
+   { "name": "sleep_idle", "from": 28, "to": 33, "direction": "forward", "color": "#000000ff" },
+   { "name": "sleep_alt_idle", "from": 28, "to": 33, "direction": "forward", "color": "#000000ff" }
+  ]
+ }
+}

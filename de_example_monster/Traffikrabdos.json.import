@@ -1,0 +1,29 @@
+[remap]
+
+importer="eska.aseprite_importer"
+type="PackedScene"
+path="res://.import/Traffikrabdos.json-1150f21a090b37709953aeafb95b13af.scn"
+
+[deps]
+
+source_file="res://mods/de_example_monster/Traffikrabdos.json"
+dest_files=[ "res://.import/Traffikrabdos.json-1150f21a090b37709953aeafb95b13af.scn" ]
+
+[params]
+
+sheet_image=""
+post_script=""
+root_node_name="Sprite"
+autoplay_animation=""
+loop=true
+as_3d=true
+custom_material=""
+billboard=1
+pixel_size=0.125
+origin_x=0.5
+origin_y=0.0
+offset=Vector2( 0, 0 )
+cast_shadow=true
+unshaded=false
+use_alpha_scissor=true
+cull_mode=0

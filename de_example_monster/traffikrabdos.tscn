@@ -1,0 +1,134 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://data/fusion_scripts/FusionGenerator.gd" type="Script" id=1]
+[ext_resource path="res://data/fusion_scripts/FusionPartSlot.gd" type="Script" id=2]
+[ext_resource path="res://sprites/fusions/arms/insect_arms_back.json" type="PackedScene" id=3]
+[ext_resource path="res://sprites/fusions/tail/insect_tail.json" type="PackedScene" id=4]
+[ext_resource path="res://sprites/fusions/legs/insect_leg_back.json" type="PackedScene" id=5]
+[ext_resource path="res://sprites/fusions/body/quad_insect_body.json" type="PackedScene" id=6]
+[ext_resource path="res://sprites/fusions/legs/insect_leg_front.json" type="PackedScene" id=7]
+[ext_resource path="res://sprites/fusions/helmet/traffikrab_helmet_back.json" type="PackedScene" id=8]
+[ext_resource path="res://sprites/fusions/head/traffikrab_head.json" type="PackedScene" id=9]
+[ext_resource path="res://sprites/fusions/helmet/traffikrab_helmet_front.json" type="PackedScene" id=10]
+[ext_resource path="res://sprites/fusions/arms/insect_arms_front.json" type="PackedScene" id=11]
+[ext_resource path="res://sprites/fusions/legs/insect3_leg_front.json" type="PackedScene" id=12]
+[ext_resource path="res://sprites/fusions/legs/insect3_leg_back.json" type="PackedScene" id=13]
+
+[node name="FusionGenerator" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Arm_Back" type="Node2D" parent="."]
+visible = false
+position = Vector2( 29, -3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="insect_arms_back" parent="Arm_Back" instance=ExtResource( 3 )]
+
+[node name="Tail" type="Node2D" parent="."]
+position = Vector2( -2, 19 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" parent="Tail" instance=ExtResource( 4 )]
+
+[node name="BackLeg_Back" type="Node2D" parent="."]
+position = Vector2( 41, 37 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" parent="BackLeg_Back" instance=ExtResource( 5 )]
+
+[node name="FrontLeg_Back" type="Node2D" parent="."]
+position = Vector2( 66, 37 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="insect3_leg_back" parent="FrontLeg_Back" instance=ExtResource( 13 )]
+
+[node name="Body" type="Node2D" parent="."]
+position = Vector2( 28, 24 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+force_usage = true
+
+[node name="quad_insect_body" parent="Body" instance=ExtResource( 6 )]
+
+[node name="BackLeg_Front" type="Node2D" parent="."]
+position = Vector2( 26, 41 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+match_part = NodePath("../BackLeg_Back")
+
+[node name="Sprite" parent="BackLeg_Front" instance=ExtResource( 7 )]
+
+[node name="FrontLeg_Front" type="Node2D" parent="."]
+position = Vector2( 51, 41 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+match_part = NodePath("../FrontLeg_Back")
+
+[node name="insect3_leg_front" parent="FrontLeg_Front" instance=ExtResource( 12 )]
+
+[node name="HelmetBack" type="Node2D" parent="."]
+position = Vector2( 48, -1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" parent="HelmetBack" instance=ExtResource( 8 )]
+
+[node name="Head" type="Node2D" parent="."]
+position = Vector2( 48, -1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+match_part = NodePath("../HelmetBack")
+inverse_match = true
+
+[node name="Sprite" parent="Head" instance=ExtResource( 9 )]
+
+[node name="HelmetFront" type="Node2D" parent="."]
+position = Vector2( 48, -1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+match_part = NodePath("../HelmetBack")
+
+[node name="Sprite" parent="HelmetFront" instance=ExtResource( 10 )]
+
+[node name="Arm_Front" type="Node2D" parent="."]
+visible = false
+position = Vector2( 19, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="insect_arms_front" parent="Arm_Front" instance=ExtResource( 11 )]
+
+[node name="attack" type="Node2D" parent="."]
+position = Vector2( 90.1374, 40.2044 )
+
+[node name="eye" type="Node2D" parent="."]
+position = Vector2( 81, 33 )
+
+[node name="hit" type="Node2D" parent="."]
+position = Vector2( 85, 53 )

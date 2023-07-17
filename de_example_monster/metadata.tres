@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://mods/de_example_monster/mod.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+id = "de_example_monster"
+name = "Example Monster"
+version_code = 0
+version_string = "1.0"
+author = "DeadlyEssence01"
+save_file_format_tag = ""
+save_file_format_tag_version = 0
+network_protocol_tag = ""
+modified_files = [ "res://data/monster_forms/de_traffikrabdos.tres" ]
+modified_dirs = [  ]
