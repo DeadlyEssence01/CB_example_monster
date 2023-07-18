@@ -31,7 +31,7 @@ Assuming you already have a folder for your monster mod in your CB modding envir
 If you don't already, you'll want to add a metadata.tres file to your mod folder, don't bother filling out the information yet. The Modding Environment Guide at the top explains how to add a metadata.tres, if you don't know how. In order to preserve compatibility with other mods that change the monster spawn configuration you'll want to create a new script file in your folder, it should extend from `ContentInfo`. You may name it whatever you want, the example monster mod names this file `mod.gd`. Now open metadata.tres in the editor. The file will open in the rightmost "Inspector" window. At the bottom there is a "Script" which shows `ContentInfo`. Drag your script to that spot. Now you may fill out your mod information in the `metadata.tres`. Filling out the information prior to changing the script the metadata file uses, causes all your information to be reset.
 
 Now that we have that set up, let's get a new Monster.tres file set up. If you have a monster in mind that you'd like yours to mimic, you can go to `data/monster_forms` and copy, paste and rename the .tres file of the monster you'd like to replicate. Otherwise, you can start fresh with a new monster template, (this method is slightly more tedious). To do that, right click on the `monster_forms` folder, and click "add resource". Type in "MonsterForm" and select `MonsterForm (MonsterForm.gd)` from the list. Name it the name of your monster. i.e. `traffikrabdos.tres`. 
-(NOTE: If you want to not break saves by using the code listed at the end of this guide, prefix your monster's file name with `mod_`. i.e. `mod_traffikrabdos.tres`, otherwise there will be a mod to fix saves.)
+(NOTE: If you want to not break saves by using the code listed at the end of this guide, prefix your monster's file name with `mods_`. i.e. `mods_traffikrabdos.tres`, otherwise there will be a mod to fix saves.)
 
 Now, double click the monster's tres file. In this file there are a bunch of sections to fill out with information about your monster. I am not going to walk you through each one, but I will cover a few. You may look at the monsters in `data/monster_forms` or the `traffikrabdos.tres` in the example monster mod, to see what kind of information goes where. 
 
@@ -44,11 +44,11 @@ Now, double click the monster's tres file. In this file there are a bunch of sec
 1. Battle Sprite Path: Make sure to put the path to your battle sprite's json. If you right click a the battle sprite json in the Godot editor you can "Copy Path" and then paste it to fill that information in.
 1. Description: This is a short description of your monster. Traffikrabdos' is "a double coned crab".
 1. Move Tags: This section is a bit weird, as monsters get moves based on their tags. All moves have tags, and whatever tag you give a monster will determine what move set it gets. [You may look through moves, and their associated tags on the wiki.](https://wiki.cassettebeasts.com/wiki/Data:Moves) Eventually, I may be able to release a doc with all the tags list and the moves associated with them, instead of having to search for tags and click through each move.
-1. Tape upgrades: This is an array. Tapes get up to 5 stars so you can have up to 5 upgrades. 0 is the upgrade given at 1 star, 1 is the upgrade given at 2 stars, etc. If you created an empty `Monster_Form` resource, then you will need to increase the size to 5, and in each `[empty]` slot you'll want to find and click `New TapeUpgradeMove`, this will allow you to optionally add a new slot on upgrade, and a new sticker. You can drag and drop stickers into the `sticker` slot from `data/battle_moves`.
+1. Tape Upgrades: This is an array. Tapes get up to 5 stars so you can have up to 5 upgrades. 0 is the upgrade given at 1 star, 1 is the upgrade given at 2 stars, etc. If you created an empty `Monster_Form` resource, then you will need to increase the size to 5, and in each `[empty]` slot you'll want to find and click `New TapeUpgradeMove`, this will allow you to optionally add a new slot on upgrade, and a new sticker. You can drag and drop stickers into the `sticker` slot from `data/battle_moves`.
 1. Bestiary Index: this should be -1 for all modded monsters.
 1. Bestiary Bios: This is broken up into 2 sections (Your array should be size 2). The first is the default bio your monster shows. The second is the additional bio information unlocked by getting the monster to 5 stars. 
 
-Once you've filled all that out, your monster is *almost* done. Congratz! You've made it this far.
+Once you've filled all that out, your monster is *almost* done. Congrats! You've made it this far.
 
 We have three more things to cover: 
 1. Making the game recognize your monster (add it to the bestiary, make it available through give_tape commands, etc).
@@ -77,7 +77,7 @@ func init_content():
 
 func load_monster(monster_name):
 	yield (SceneManager.preloader, "singleton_setup_completed")
-	var custom_monster = load("res://mods/de_example_monster/" + monster_name + ".tres") #change ths path to be your mod folder
+	var custom_monster = load("res://mods/de_example_monster/" + monster_name + ".tres") #change this path to be your mod folder
 	MonsterForms.basic_forms["custom_monster"] = custom_monster
 	MonsterForms.by_name.append(custom_monster)
 	MonsterForms.by_index.append(custom_monster)
@@ -134,7 +134,7 @@ Now, when the game loads, our translation strings will load in, and our spawn co
 
 
 ### Save Files - Optional
-Adding new monsters to the game, and then removing the mod that adds them breaks the save file. There are currently two ways to fix this. 1. Requesting the player download [this mod that doesn't exist yet]() the mod will fix broken saves, or by using the code below [(based on code from NCrafter)](https://github.com/ninaforce13/CassetteBeasts-CustomMonsterTest/blob/main/Custom%20Monster/TapeCollections_Ext.gd) to make your mod not even break the save to begin with. 
+Adding new monsters to the game, and then removing the mod that adds them breaks the save file. There are currently two ways to fix this. 1. Requesting the player download [this mod that doesn't exist yet]() the mod will fix broken saves, or by using the code below [(based on code from NCrafter)](https://github.com/ninaforce13/CassetteBeasts-CustomMonsterTest/blob/main/Custom%20Monster/TapeCollections_Ext.gd) to make your mod not break the save to begin with. 
 
 The code pasted below does not yet fix a save if a modded monsters is given to Frankie.  NCrafter is updating the GitHub repository and updates to this guide will soon follow. 
 
@@ -163,7 +163,6 @@ func get_snapshot() -> void:
 		if snapshot["form"].begins_with("res://mods/") or snapshot["form"].begins_with("res://data/monster_forms/mods_"):
 			snapshot["custom_form"] = snapshot["form"]
 			snapshot["form"] =  "res://data/monster_forms/traffikrab.tres"
-			print("caught custom mon in storage")
 		tape_snaps.push_back(snapshot)
 	return {
 		"tapes":tape_snaps
@@ -175,8 +174,7 @@ func set_snapshot(snap, version:int) -> bool:
 		var tape = MonsterTape.new()
 		if tape_snap.has("custom_form"):
 			if tape_snap.custom_form != "":
-				tape_snap.form = tape_snap.custom_form	
-				print("converted custom tape back to custom form")	
+				tape_snap.form = tape_snap.custom_form		
 		if tape.set_snapshot(tape_snap, version):
 			add_tape(tape)
 		else :
@@ -201,7 +199,6 @@ func get_snapshot() -> void:
 		if snapshot["form"].begins_with("res://mods/") or snapshot["form"].begins_with("res://data/monster_forms/mods_"):
 			snapshot["custom_form"] = snapshot["form"]
 			snapshot["form"] =  "res://data/monster_forms/traffikrab.tres"		
-			print("caught custom mon in party")
 	return {
 		"fusion_meter":fusion_meter.get_snapshot(), 
 		"player":playersnap, 
@@ -220,8 +217,7 @@ func set_snapshot(snap, version:int)->bool:
 	for tape_snap in snap.player.tapes:
 		if tape_snap.has("custom_form"):
 			if tape_snap.custom_form != "":
-				tape_snap.form = tape_snap.custom_form	
-				print("converted custom form in party")			
+				tape_snap.form = tape_snap.custom_form			
 	fusion_meter.set_snapshot(snap.get("fusion_meter"), version)
 	if not get_player().set_snapshot(snap.player, version):
 		return false
