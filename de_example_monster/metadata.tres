@@ -6,11 +6,11 @@
 script = ExtResource( 1 )
 id = "de_example_monster"
 name = "Example Monster"
-version_code = 0
-version_string = "1.0"
+version_code = 1
+version_string = "1.1"
 author = "DeadlyEssence01"
 save_file_format_tag = ""
 save_file_format_tag_version = 0
-network_protocol_tag = ""
-modified_files = [ "res://data/monster_forms/de_traffikrabdos.tres" ]
+network_protocol_tag = "de_example_mon"
+modified_files = [  ]
 modified_dirs = [  ]

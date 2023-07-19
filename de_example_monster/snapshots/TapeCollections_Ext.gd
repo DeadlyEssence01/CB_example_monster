@@ -5,7 +5,7 @@ func get_snapshot():
 	var tape_snaps = []
 	for tape in tapes_by_name:
 		var snapshot = tape.get_snapshot()		
-		if snapshot["form"].begins_with("res://mods/"):
+		if snapshot["form"].begins_with("res://mods/") or snapshot["form"].begins_with("res://data/monster_forms/mods_"):
 			snapshot["custom_form"] = snapshot["form"]
 			snapshot["form"] =  "res://data/monster_forms/traffikrab.tres"
 			print("caught custom mon in storage")
@@ -20,8 +20,10 @@ func set_snapshot(snap, version:int)->bool:
 		var tape = MonsterTape.new()
 		if tape_snap.has("custom_form"):
 			if tape_snap.custom_form != "":
-				tape_snap.form = tape_snap.custom_form	
-				print("converted custom tape back to custom form")	
+				var form = load(tape_snap.custom_form) as MonsterForm
+				if form:									
+					tape_snap.form = tape_snap.custom_form	
+					print("converted custom tape back to custom form")	
 		if tape.set_snapshot(tape_snap, version):
 			add_tape(tape)
 		else :

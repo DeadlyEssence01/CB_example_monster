@@ -8,7 +8,7 @@ func get_snapshot():
 			partners_snap[partner.partner_id] = partner.get_snapshot()
 	var playersnap = player.get_snapshot()
 	for snapshot in playersnap.tapes:		
-		if snapshot["form"].begins_with("res://mods/"):
+		if snapshot["form"].begins_with("res://mods/") or snapshot["form"].begins_with("res://data/monster_forms/mods_"):
 			snapshot["custom_form"] = snapshot["form"]
 			snapshot["form"] =  "res://data/monster_forms/traffikrab.tres"		
 			print("caught custom mon in party")
@@ -30,8 +30,10 @@ func set_snapshot(snap, version:int)->bool:
 	for tape_snap in snap.player.tapes:
 		if tape_snap.has("custom_form"):
 			if tape_snap.custom_form != "":
-				tape_snap.form = tape_snap.custom_form	
-				print("converted custom form in party")			
+				var form = load(tape_snap.custom_form) as MonsterForm
+				if form:									
+					tape_snap.form = tape_snap.custom_form					
+					print("converted custom form in party")		
 	fusion_meter.set_snapshot(snap.get("fusion_meter"), version)
 	if not get_player().set_snapshot(snap.player, version):
 		return false

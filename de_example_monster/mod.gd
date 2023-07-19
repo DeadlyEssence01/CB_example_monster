@@ -2,20 +2,23 @@ extends ContentInfo
 
 var tapecollection_ext: Resource = preload("res://mods/de_example_monster/snapshots/TapeCollections_Ext.gd")
 var party_ext: Resource = preload("res://mods/de_example_monster/snapshots/Party_Ext.gd")
-
+var choose_frankie_ext: Resource = preload("res://mods/de_example_monster/snapshots/ChooseFrankieTape_Ext.gd")
+var frankie_tape_config_ext: Resource = preload("res://mods/de_example_monster/snapshots/FrankieTapeConfig_Ext.gd")
 
 func init_content() -> void:
 	#Fix save files before they break!
-	tapecollection_ext.take_over_path("res://global/save_state/TapeCollection.gd")
+	choose_frankie_ext.take_over_path("res://cutscenes/sidequests/frankie/ChooseFrankieTape.gd")
+	frankie_tape_config_ext.take_over_path("res://world/quest_scenes/FrankieTapeConfig.gd")
+	party_ext.take_over_path("res://global/save_state/Party.gd")
 	party_ext.take_over_path("res://global/save_state/Party.gd")
 	
 	TranslationServer.add_translation(preload("mod_strings.en.translation"))
-	_load_monsters("traffikrabdos")
+	_load_monster("traffikrabdos")
 	_load_traffikrabdos_spawn()
 
 
 #Add monster to the game from the mod folder.
-func _load_monsters(monster_name) -> void:
+func _load_monster(monster_name) -> void:
 	yield (SceneManager.preloader, "singleton_setup_completed")
 	var monster = load("res://mods/de_example_monster/" + monster_name + ".tres")
 	MonsterForms.basic_forms[monster_name] = monster
@@ -33,7 +36,7 @@ func _load_traffikrabdos_spawn() -> void:
 	#optional
 	spawn_config.world_monster = preload("res://mods/de_example_monster/Traffikrabdos_world.tscn")
 	#optional - High numbers spawn more often than lower numbers.
-	spawn_config.weight = 0.33
+	spawn_config.weight = 0.10
 	#optional - Earliest hour it will spawn.
 	#spawn_config.hour_min = 0
 	#optional - Latest hour it will spawn
