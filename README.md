@@ -142,39 +142,48 @@ The code pasted below does not yet fix a save if a modded monsters is given to F
 In `mod.gd` you'll need to add the below code prior to `func init_content() -> void:` and replace your folder name with your mod's folder name.
 
 ```
-	var tapecollection_ext: Resource = preload("res://mods/yourfoldername/TapeCollections_Ext.gd")
-	var party_ext: Resource = preload("res://mods/yourfoldername/Party_Ext.gd")
+var tapecollection_ext: Resource = preload("res://mods/de_example_monster/snapshots/TapeCollections_Ext.gd")
+var party_ext: Resource = preload("res://mods/de_example_monster/snapshots/Party_Ext.gd")
+var choose_frankie_ext: Resource = preload("res://mods/de_example_monster/snapshots/ChooseFrankieTape_Ext.gd")
+var frankie_tape_config_ext: Resource = preload("res://mods/de_example_monster/snapshots/FrankieTapeConfig_Ext.gd")
+
 ```
 
-Then, you can either download the two files from NCrafter's github repository, `TapeCollections_Ext.gd` and `Party_Ext.gd` and put them in the base folder of your mod, or copy the code below. The scripts are here in case the github is unavailable at some point.
+Then, you can either download the four files from NCrafter's github repository, `TapeCollections_Ext.gd`, `Party_Ext.gd`, `ChooseFrankieTape_Ext.gd`, and `FrankieTapeConfig.gd` and put them in the base folder of your mod, or copy the code below. The scripts are here in case the github is unavailable at some point.
+
+
+**If you're loading your monster form in through the `monster_forms` directory you need to have a prefix on all of your monsters.tres files of "mod_".**
 
 Create a script called `TapeCollections_Ext.gd` and make it extend `"res://global/save_state/TapeCollection.gd"`.
 In that script it should look like this:
-**If you're loading your monster form in through the `monster_forms` directory you need to have a prefix on all of your monsters.tres files of "mod_".**
 
 ```
 extends "res://global/save_state/TapeCollection.gd"
 
 
-func get_snapshot() -> void:
+func get_snapshot():
 	var tape_snaps = []
 	for tape in tapes_by_name:
 		var snapshot = tape.get_snapshot()		
 		if snapshot["form"].begins_with("res://mods/") or snapshot["form"].begins_with("res://data/monster_forms/mods_"):
 			snapshot["custom_form"] = snapshot["form"]
 			snapshot["form"] =  "res://data/monster_forms/traffikrab.tres"
+			print("caught custom mon in storage")
 		tape_snaps.push_back(snapshot)
 	return {
 		"tapes":tape_snaps
 	}
 
-func set_snapshot(snap, version:int) -> bool:
+func set_snapshot(snap, version:int)->bool:
 	clear()
 	for tape_snap in snap.tapes:
 		var tape = MonsterTape.new()
 		if tape_snap.has("custom_form"):
 			if tape_snap.custom_form != "":
-				tape_snap.form = tape_snap.custom_form		
+				var form = load(tape_snap.custom_form) as MonsterForm
+				if form:									
+					tape_snap.form = tape_snap.custom_form	
+					print("converted custom tape back to custom form")	
 		if tape.set_snapshot(tape_snap, version):
 			add_tape(tape)
 		else :
@@ -189,7 +198,7 @@ That script should look like:
 extends "res://global/save_state/Party.gd"
 
 
-func get_snapshot() -> void:
+func get_snapshot():
 	var partners_snap = {}
 	for partner in partners:
 		if unlocked_partners.has(partner.partner_id) or partner.partner_id == current_partner_id:
@@ -199,6 +208,7 @@ func get_snapshot() -> void:
 		if snapshot["form"].begins_with("res://mods/") or snapshot["form"].begins_with("res://data/monster_forms/mods_"):
 			snapshot["custom_form"] = snapshot["form"]
 			snapshot["form"] =  "res://data/monster_forms/traffikrab.tres"		
+			print("caught custom mon in party")
 	return {
 		"fusion_meter":fusion_meter.get_snapshot(), 
 		"player":playersnap, 
@@ -217,7 +227,10 @@ func set_snapshot(snap, version:int)->bool:
 	for tape_snap in snap.player.tapes:
 		if tape_snap.has("custom_form"):
 			if tape_snap.custom_form != "":
-				tape_snap.form = tape_snap.custom_form			
+				var form = load(tape_snap.custom_form) as MonsterForm
+				if form:									
+					tape_snap.form = tape_snap.custom_form					
+					print("converted custom form in party")		
 	fusion_meter.set_snapshot(snap.get("fusion_meter"), version)
 	if not get_player().set_snapshot(snap.player, version):
 		return false
@@ -251,6 +264,73 @@ func set_snapshot(snap, version:int)->bool:
 	return true
 	
 ```
+
+For `ChooseFrankieTape_Ext.gd:`, extends: `"res://cutscenes/sidequests/frankie/ChooseFrankieTape.gd"`.
+```
+extends "res://cutscenes/sidequests/frankie/ChooseFrankieTape.gd"
+
+func _run():
+	var tapes = SaveState.party.get_tapes()
+	var tape = yield (MenuHelper.show_choose_tape_menu(tapes, Bind.new(self, "_tape_filter")), "completed")
+	if not tape:
+		return false
+	
+	assert (tape.form != null)
+	blackboard.species_name = tape.form.name
+	blackboard.species_description = tape.form.description
+	
+	var msg = Loc.trf(confirm_message, {species_name = tape.get_name()})
+	if not yield (MenuHelper.confirm(msg), "completed"):
+		return false
+	
+	SaveState.party.remove_tape(tape)
+	for i in range(tape.get_max_stickers()):
+		var sticker = tape.peel_sticker(i)
+		if sticker:
+			SaveState.inventory.add_item(sticker)
+	
+	tape.hp.set_to(1, 1)
+	var snap = tape.get_snapshot()
+	if snap["form"].begins_with("res://mods/") or snap["form"].begins_with("res://data/monster_forms/mods_"):
+		snap["custom_form"] = snap["form"]
+		snap["form"] =  "res://data/monster_forms/traffikrab.tres"
+		print("Intercepted Frankie Tape. Adding hotfix")	
+	snap.version = SaveState.CURRENT_VERSION
+	SaveState.other_data[data_key] = snap
+	
+	return true
+```
+
+For `FrankieTapeConfig_Ext.gd:`, extends `"res://world/quest_scenes/FrankieTapeConfig.gd"`
+```
+extends "res://world/quest_scenes/FrankieTapeConfig.gd"
+
+func _generate_tape(rand:Random, defeat_count:int)->MonsterTape:
+	var result = ._generate_tape(rand, defeat_count)
+	
+	var snap = SaveState.other_data.get(data_key).duplicate()
+	if snap:
+		if snap.has("custom_form"):
+			if snap.custom_form != "":
+				var form = load(snap.custom_form) as MonsterForm
+				if form:									
+					snap.form = snap.custom_form						
+					print("converted custom tape back to custom form")			
+		result.set_snapshot(snap, snap.get("version", 0))
+	
+	for threshold in evolve_defeat_counts:
+		if threshold > defeat_count:
+			break
+		var selected_evo = null
+		for evo in result.form.evolutions:
+			if not evo.is_secret:
+				selected_evo = evo
+		if selected_evo:
+			result.evolve(selected_evo)
+	
+	return result
+```
+
 
 **Do not modify these scripts to be personal to your mod, if you do, any other monster mod that adds these scripts runs the chance of being overwritten by or overwriting your changes.**
 
