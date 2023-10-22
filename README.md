@@ -70,7 +70,7 @@ To take the hard way, and keep all of your monsters in your mod folder you'll fi
 
 Start by making sure your `mod.gd` file looks like this:
 
-```
+```gdscript
 func init_content():
 	load_monsters()
 
@@ -93,7 +93,7 @@ First, figure out the name of the region(s) you want it to spawn in. Now we need
 Let's go ahead and open up the script, `mod.gd` from the example project, if you named it the same as the example. Depending on your script set up, you will either have a blank script file that has "extends ContentInfo" at the top, or you'll have some basic functions / comments added in. We don't really need anything from the functions or comments, but we will keep the extends at the top. As the modding guide explains, we want to set up our information in the `init_content()` function.
 
 
-```
+```gdscript
 extends ContentInfo
 
 
@@ -141,7 +141,7 @@ The code pasted below does not yet fix a save if a modded monsters is given to F
 
 In `mod.gd` you'll need to add the below code prior to `func init_content() -> void:` and replace your folder name with your mod's folder name.
 
-```
+```gdscript
 var tapecollection_ext: Resource = preload("res://mods/de_example_monster/snapshots/TapeCollections_Ext.gd")
 var party_ext: Resource = preload("res://mods/de_example_monster/snapshots/Party_Ext.gd")
 var choose_frankie_ext: Resource = preload("res://mods/de_example_monster/snapshots/ChooseFrankieTape_Ext.gd")
@@ -157,7 +157,7 @@ Then, you can either download the four files from NCrafter's github repository, 
 Create a script called `TapeCollections_Ext.gd` and make it extend `"res://global/save_state/TapeCollection.gd"`.
 In that script it should look like this:
 
-```
+```gdscript
 extends "res://global/save_state/TapeCollection.gd"
 
 
@@ -194,7 +194,7 @@ func set_snapshot(snap, version:int)->bool:
 Next, we need to create another script called `Party_Ext.gd` and it will need to extend `"res://global/save_state/Party.gd"`.
 That script should look like:
 
-```
+```gdscript
 extends "res://global/save_state/Party.gd"
 
 
@@ -266,7 +266,7 @@ func set_snapshot(snap, version:int)->bool:
 ```
 
 For `ChooseFrankieTape_Ext.gd:`, extends: `"res://cutscenes/sidequests/frankie/ChooseFrankieTape.gd"`.
-```
+```gdscript
 extends "res://cutscenes/sidequests/frankie/ChooseFrankieTape.gd"
 
 func _run():
@@ -302,7 +302,7 @@ func _run():
 ```
 
 For `FrankieTapeConfig_Ext.gd:`, extends `"res://world/quest_scenes/FrankieTapeConfig.gd"`
-```
+```gdscript
 extends "res://world/quest_scenes/FrankieTapeConfig.gd"
 
 func _generate_tape(rand:Random, defeat_count:int)->MonsterTape:
